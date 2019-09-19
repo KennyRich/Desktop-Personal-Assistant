@@ -125,7 +125,7 @@ if __name__ == '__main__':
                                     
         elif 'play music' in query:
             music_folder = "YOUR MUSIC DIRECTORY"
-            music = ['YOUR LIST OF MUSIC ]
+            music = ['YOUR LIST OF MUSIC']
             random_music = music_folder + random.choice(music) + '.mp3'
             os.system(random_music)
                   
