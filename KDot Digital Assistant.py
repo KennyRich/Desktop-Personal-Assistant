@@ -18,7 +18,7 @@ import sys
 
 engine = pyttsx3.init('sapi5')
 
-client = wolframalpha.Client('4K3LRQ-GJQE6769QQ')
+client = wolframalpha.Client('YOUR API KEY')
 
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[len(voices)-1].id)
@@ -57,7 +57,7 @@ def myCommand():
         print('User: ' + query + '\n')
         
     except sr.UnknownValueError:
-        speak('Sorry sir! I didn\'t get that! Try typing the command!')
+        speak('Sorry Fam! I didn\'t get that! Try typing the command!')
         query = str(input('Command: '))
 
     return query
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
         elif 'open google' in query:
             speak('okay')
-            webbrowser.open('www.google.co.in')
+            webbrowser.open('www.google.com')
 
         elif 'open gmail' in query:
             speak('okay')
@@ -124,8 +124,8 @@ if __name__ == '__main__':
             sys.exit()
                                     
         elif 'play music' in query:
-            music_folder = "C:\\Users\\kenny\\Music"
-            music = ['GTCrew', 'Holy Spirit', 'I Can Only Imagine', 'Jermaine Leong_ New Creation Worship Finished' ]
+            music_folder = "YOUR MUSIC DIRECTORY"
+            music = ['YOUR LIST OF MUSIC ]
             random_music = music_folder + random.choice(music) + '.mp3'
             os.system(random_music)
                   
@@ -139,14 +139,14 @@ if __name__ == '__main__':
                 try:
                     res = client.query(query)
                     results = next(res.results).text
-                    speak('WOLFRAM-ALPHA says - ')
+                    speak('The result from WOLFRAM-ALPHA says - ')
                     speak('Got it.')
                     speak(results)
                     
                 except:
                     results = wikipedia.summary(query, sentences=2)
                     speak('Got it.')
-                    speak('WIKIPEDIA says - ')
+                    speak('Results from WIKIPEDIA says - ')
                     speak(results)
         
             except:
